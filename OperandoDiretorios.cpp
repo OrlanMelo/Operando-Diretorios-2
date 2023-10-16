@@ -28,14 +28,14 @@ public:
 
 	/*
 	* 
-	* Ao criar diretórios, você poderá usar duas opções de criação.
+	* Ao criar diretÃ³rios, vocÃª poderÃ¡ usar duas opÃ§Ãµes de criaÃ§Ã£o.
 	* 
-	* 1 - Criar um diretório comum.
-	* 2 - Criar um diretório usando os atributos de outro diretório.
+	* 1 - Criar um diretÃ³rio comum.
+	* 2 - Criar um diretÃ³rio usando os atributos de outro diretÃ³rio.
 	* 
-	* Variáveis:
-	* - DiretórioAnterior: Irá criar o diretório usando os atributos e propriedades de outro diretório.
-	* - NovoDiretorio para criar o diretório usando ou não mesclagem de dados.
+	* VariÃ¡veis:
+	* - DiretÃ³rioAnterior: IrÃ¡ criar o diretÃ³rio usando os atributos e propriedades de outro diretÃ³rio.
+	* - NovoDiretorio para criar o diretÃ³rio usando ou nÃ£o mesclagem de dados.
 	* 
 	*/
 	void CriarDiretorio(wstring DiretorioAnterior, wstring NovoDiretorio, bool MesclarAtributos)
@@ -53,13 +53,13 @@ public:
 		switch (Res)
 		{
 		case TRUE:
-			cout << "O diretório foi criado com sucesso..";
+			cout << "O diretÃ³rio foi criado com sucesso..";
 			break;
 		case ERROR_ALREADY_EXISTS:
-			cout << "O diretório informado já existe..\n";
+			cout << "O diretÃ³rio informado jÃ¡ existe..\n";
 			break;
 		case FALSE:
-			cout << "Ocorreu um erro durante a operação.." << GetLastError();
+			cout << "Ocorreu um erro durante a operaÃ§Ã£o.." << GetLastError();
 			break;
 		default:
 			break;
@@ -82,9 +82,13 @@ public:
 		SHCreateItemFromParsingName(NovoLocal.c_str(), 0, IID_PPV_ARGS(&Item2));
 
 		if (Mover == true)
+		{
 			Operacao->MoveItem(Item /* Local atual */, Item2 /* Novo local */, 0, 0);
+		}
 		else
+		{
 			Operacao->CopyItem(Item /* Local atual */, Item2 /* Novo local */, 0, 0);
+		}
 
 		Operacao->PerformOperations();
 
@@ -102,7 +106,7 @@ public:
 int main()
 {
 
-	cout << "O assistente está efetuando manipulações e tarefas no diretório...";
+	cout << "O assistente estÃ¡ efetuando manipulaÃ§Ãµes e tarefas no diretÃ³rio...";
 
 	Funcoes.CriarDiretorio(L"C:\\", L"C:\\TESTE", false);
 
